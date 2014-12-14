@@ -19,6 +19,7 @@ public class SaxXmlEntityParser implements XmlEntityParser {
     public PostCard parsePostCard(InputStream is){
         SAXParserFactory spf = SAXParserFactory.newInstance();
         try{
+            spf.setValidating(true);
             SAXParser saxParser = spf.newSAXParser();
             saxParser.parse(is, new CardDefaultHandler());
         } catch (Exception e){
