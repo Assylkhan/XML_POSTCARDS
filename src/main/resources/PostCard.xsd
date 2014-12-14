@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.example.com/assylkhan"
+        xmlns:pc="http://www.example.com/assylkhan">
+
+<complexType name="Card">
+    <sequence>
+        <element name="ID" type="positiveInteger" />
+        <element name="Theme">
+            <simpleType>
+                <restriction base="string">
+                    <enumeration value="CITY_SCENERY" />
+                    <enumeration value="NATURE" />
+                    <enumeration value="people" />
+                    <enumeration value="sport" />
+                    <enumeration value="architecture" />
+                </restriction>
+            </simpleType>
+        </element>
+        <element name="CardType">
+            <simpleType>
+                <restriction base="string">
+                    <enumeration value="congratulatory"/>
+                    <enumeration value="advertising" />
+                    <enumeration value="ordinary" />
+                </restriction>
+            </simpleType>
+        </element>
+        <element name="Country" >
+            <simpleType>
+                <restriction base="string">
+                    <pattern value="\w+" />
+                </restriction>
+            </simpleType>
+        </element>
+        <element name="Year" type="gYear" />
+        <element name="Author" minOccurs="0">
+            <simpleType>
+                <restriction base="string">
+                    <pattern value="\w+"/>
+                </restriction>
+            </simpleType>
+        </element>
+        <element name="Valuable">
+            <simpleType>
+                <restriction base="string">
+                    <enumeration value="historical" />
+                    <enumeration value="collection" />
+                    <enumeration value="thematic" />
+                </restriction>
+            </simpleType>
+        </element>
+    </sequence>
+</complexType>
+    
+<element name="OldCards">
+    <complexType>
+        <sequence>
+            <element name="card" type="pc:Card" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+</element>
+
+</schema>
