@@ -1,13 +1,15 @@
 package com.epam.entity;
 
+import java.time.Year;
+
 public class PostCard {
     private long id;
     private Theme theme;
     private CardType cardType;
     private String country;
-    private String year;
+    private Year year;
     private String author;
-    private Valueable valueable;
+    private Valuable valuable;
 
     public PostCard(){}
 
@@ -39,11 +41,11 @@ public class PostCard {
         this.country = country;
     }
 
-    public String getYear() {
+    public Year getYear() {
         return year;
     }
 
-    public void setYear(String year) {
+    public void setYear(Year year) {
         this.year = year;
     }
 
@@ -55,12 +57,12 @@ public class PostCard {
         this.author = author;
     }
 
-    public Valueable getValueable() {
-        return valueable;
+    public Valuable getValuable() {
+        return valuable;
     }
 
-    public void setValueable(Valueable valueable) {
-        this.valueable = valueable;
+    public void setValuable(Valuable valuable) {
+        this.valuable = valuable;
     }
 
     public Theme getTheme() {
@@ -80,7 +82,7 @@ public class PostCard {
                 ", country='" + country + '\'' +
                 ", year='" + year + '\'' +
                 ", author='" + author + '\'' +
-                ", valueable=" + valueable +
+                ", valuable=" + valuable +
                 '}';
     }
 }

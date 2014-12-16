@@ -3,7 +3,7 @@ package com.epam.parser;
 import com.epam.entity.CardType;
 import com.epam.entity.PostCard;
 import com.epam.entity.Theme;
-import com.epam.entity.Valueable;
+import com.epam.entity.Valuable;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 import org.xml.sax.Attributes;
@@ -12,16 +12,17 @@ import org.xml.sax.helpers.DefaultHandler;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import java.io.InputStream;
+import java.time.Year;
 
 public class SaxXmlEntityParser implements XmlEntityParser {
     private PostCard postCard = new PostCard();
 
-    public PostCard parsePostCard(InputStream is){
+    public PostCard parsePostCard(String fileName){
+        InputStream stream = SaxXmlEntityParser.class.getClassLoader().getResourceAsStream(fileName);
         SAXParserFactory spf = SAXParserFactory.newInstance();
         try{
-            spf.setValidating(true);
             SAXParser saxParser = spf.newSAXParser();
-            saxParser.parse(is, new CardDefaultHandler());
+            saxParser.parse(stream, new CardDefaultHandler());
         } catch (Exception e){
             throw new RuntimeException(e);
         }
@@ -38,11 +39,11 @@ public class SaxXmlEntityParser implements XmlEntityParser {
 
         @Override
         public void startDocument() throws SAXException {
-            System.out.println("parsing started");
+            super.startDocument();
         }
 
         public void endDocument() throws SAXException {
-            System.out.println("parsing ended");
+            super.endDocument();
         }
 
         @Override
@@ -65,9 +66,9 @@ public class SaxXmlEntityParser implements XmlEntityParser {
                 case "Theme": postCard.setTheme(Theme.valueOf(s.toUpperCase())); break;
                 case "CardType": postCard.setCardType(CardType.valueOf(s.toUpperCase())); break;
                 case "Country": postCard.setCountry(s); break;
-                case "Year": postCard.setYear(s); break;
+                case "Year": postCard.setYear(Year.parse(s)); break;
                 case "Author": postCard.setAuthor(s); break;
-                case "Valuable": postCard.setValueable(Valueable.valueOf(s.toUpperCase())); break;
+                case "Valuable": postCard.setValuable(Valuable.valueOf(s.toUpperCase())); break;
             }
             currentElement = null;
         }

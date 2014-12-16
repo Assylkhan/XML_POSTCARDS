@@ -1,20 +1,37 @@
 package com.epam;
 
 import com.epam.entity.PostCard;
+import com.epam.parser.DomXmlEntityParser;
 import com.epam.parser.SaxXmlEntityParser;
 import com.epam.parser.StaxXmlEntityParser;
 import com.epam.parser.XmlEntityParser;
+import com.epam.validator.XsdValidator;
 
-import java.io.InputStream;
+import java.util.List;
 
 public class Runner {
     public static void main(String[] args) {
-        InputStream stream = Runner.class.getClassLoader().getResourceAsStream("PostCard.xml");
+        String xmlName = "PostCard.xml";
+
+        System.out.println("SAX:");
         XmlEntityParser saxParser = new SaxXmlEntityParser();
-//        XmlEntityParser staxParser = new StaxXmlEntityParser();
-//        PostCard staxPostCard = staxParser.parsePostCard(stream);
-        PostCard saxPostCard = saxParser.parsePostCard(stream);
+        PostCard saxPostCard = saxParser.parsePostCard(xmlName);
         System.out.println(saxPostCard);
-//        System.out.println(staxPostCard);
+        System.out.println("---------------------------------");
+
+        System.out.println("STAX:");
+        XmlEntityParser staxParser = new StaxXmlEntityParser();
+        PostCard staxPostCard = staxParser.parsePostCard(xmlName);
+        System.out.println(staxPostCard);
+        System.out.println("---------------------------------");
+
+
+        System.out.println("DOM:");
+        XmlEntityParser domParser = new DomXmlEntityParser();
+        PostCard domPostCard = domParser.parsePostCard(xmlName);
+        System.out.println(domPostCard);
+
+//      XSD  Validating
+        XsdValidator.validate("PostCard.xml", "PostCard.xsd");
     }
 }
