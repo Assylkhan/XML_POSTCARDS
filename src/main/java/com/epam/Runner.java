@@ -7,8 +7,6 @@ import com.epam.parser.StaxXmlEntityParser;
 import com.epam.parser.XmlEntityParser;
 import com.epam.validator.XsdValidator;
 
-import java.util.List;
-
 public class Runner {
     public static void main(String[] args) {
         String xmlName = "PostCard.xml";

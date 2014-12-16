@@ -16,12 +16,8 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.time.Year;
-import java.util.ArrayList;
-import java.util.List;
 
-/**
- * Created by Асылхан on 16.12.2014.
- */
+
 public class DomXmlEntityParser implements XmlEntityParser {
     public PostCard parsePostCard(String fileName){
         PostCard postCard = null;
