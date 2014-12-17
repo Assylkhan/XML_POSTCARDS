@@ -1,35 +1,34 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<pc:OldCards xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<pc:postCards xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xmlns:pc="http://www.example.com/assylkhan"
              xsi:schemaLocation="http://www.example.com/assylkhan PostCard.xsd">
-    
-<card>
-    <ID>1</ID>
-    <Theme>NATURE</Theme>
-    <CardType>advertising</CardType>
-    <Country>Germany</Country>
-    <Year>2014</Year>
-    <Valuable>collection</Valuable>
-</card>
+<postCard>
+    <id>1</id>
+    <theme>NATURE</theme>
+    <cardType>ADVERTISING</cardType>
+    <country>Germany</country>
+    <year>2014</year>
+    <valuable>COLLECTION</valuable>
+</postCard>
 
-<card>
-    <ID>2</ID>
-    <Theme>CITY_SCENERY</Theme>
-    <CardType>congratulatory</CardType>
-    <Country>USA</Country>
-    <Year>2015</Year>
-    <Author>EPAM</Author>
-    <Valuable>historical</Valuable>
-</card>
+<postCard>
+    <id>2</id>
+    <theme>CITY_SCENERY</theme>
+    <cardType>CONGRATULATORY</cardType>
+    <country>USA</country>
+    <year>2015</year>
+    <author>EPAM</author>
+    <valuable>HISTORICAL</valuable>
+</postCard>
 
-<card>
-    <ID>3</ID>
-    <Theme>architecture</Theme>
-    <CardType>ordinary</CardType>
-    <Country>Japan</Country>
-    <Year>2017</Year>
-    <Author>Jamato</Author>
-    <Valuable>thematic</Valuable>
-</card>
+<postCard>
+    <id>3</id>
+    <theme>ARCHITECTURE</theme>
+    <cardType>ORDINARY</cardType>
+    <country>Japan</country>
+    <year>2017</year>
+    <author>Jamato</author>
+    <valuable>THEMATIC</valuable>
+</postCard>
              
-</pc:OldCards>
+</pc:postCards>

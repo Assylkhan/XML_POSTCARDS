@@ -62,13 +62,13 @@ public class SaxXmlEntityParser implements XmlEntityParser {
             if (currentElement == null) return;
             String s = stringBuilder.toString().trim();
             switch (currentElement){
-                case "ID": postCard = new PostCard(Long.parseLong(s)); break;
-                case "Theme": postCard.setTheme(Theme.valueOf(s.toUpperCase())); break;
-                case "CardType": postCard.setCardType(CardType.valueOf(s.toUpperCase())); break;
-                case "Country": postCard.setCountry(s); break;
-                case "Year": postCard.setYear(Year.parse(s)); break;
-                case "Author": postCard.setAuthor(s); break;
-                case "Valuable": postCard.setValuable(Valuable.valueOf(s.toUpperCase())); break;
+                case "id": postCard = new PostCard(Long.parseLong(s)); break;
+                case "theme": postCard.setTheme(Theme.valueOf(s.toUpperCase())); break;
+                case "cardType": postCard.setCardType(CardType.valueOf(s.toUpperCase())); break;
+                case "country": postCard.setCountry(s); break;
+                case "year": postCard.setYear(Year.parse(s)); break;
+                case "author": postCard.setAuthor(s); break;
+                case "valuable": postCard.setValuable(Valuable.valueOf(s.toUpperCase())); break;
             }
             currentElement = null;
         }

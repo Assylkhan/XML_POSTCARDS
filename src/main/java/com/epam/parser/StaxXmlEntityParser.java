@@ -34,25 +34,25 @@ public class StaxXmlEntityParser implements XmlEntityParser {
                         if (currentElement == null) break;
                         String s = builder.toString().trim();
                         switch (currentElement) {
-                            case "ID":
+                            case "id":
                                 postCard = new PostCard(Long.parseLong(s));
                                 break;
-                            case "Theme":
+                            case "theme":
                                 postCard.setTheme(Theme.valueOf(s.toUpperCase()));
                                 break;
-                            case "CardType":
+                            case "cardType":
                                 postCard.setCardType(CardType.valueOf(s.toUpperCase()));
                                 break;
-                            case "Country":
+                            case "country":
                                 postCard.setCountry(s);
                                 break;
-                            case "Year":
+                            case "year":
                                 postCard.setYear(Year.parse(s));
                                 break;
-                            case "Author":
+                            case "author":
                                 postCard.setAuthor(s);
                                 break;
-                            case "Valuable":
+                            case "valuable":
                                 postCard.setValuable(Valuable.valueOf(s.toUpperCase()));
                                 break;
                         }

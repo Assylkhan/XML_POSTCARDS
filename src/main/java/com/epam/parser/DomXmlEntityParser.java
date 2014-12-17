@@ -39,22 +39,22 @@ public class DomXmlEntityParser implements XmlEntityParser {
     }
 
     private PostCard postCardBuilder(Element root) {
-        NodeList postCardsNodes = root.getElementsByTagName("card");
+        NodeList postCardsNodes = root.getElementsByTagName("postCard");
         PostCard postCard = new PostCard();
         for (int i = 0; i < postCardsNodes.getLength(); i++) {
             Element postCardElement = (Element)postCardsNodes.item(i);
-            String theme = getElementTextContent(postCardElement, "Theme").toUpperCase();
-            String cardType = getElementTextContent(postCardElement, "CardType").toUpperCase();
-            String valuable = getElementTextContent(postCardElement, "Valuable").toUpperCase();
+            String theme = getElementTextContent(postCardElement, "theme").toUpperCase();
+            String cardType = getElementTextContent(postCardElement, "cardType").toUpperCase();
+            String valuable = getElementTextContent(postCardElement, "valuable").toUpperCase();
 
-            postCard.setId(Long.parseLong(getElementTextContent(postCardElement, "ID")));
+            postCard.setId(Long.parseLong(getElementTextContent(postCardElement, "id")));
             postCard.setTheme(Theme.valueOf(theme));
             postCard.setCardType(CardType.valueOf(cardType));
-            postCard.setCountry(getElementTextContent(postCardElement, "Country"));
-            postCard.setYear(Year.parse(getElementTextContent(postCardElement, "Year")));
+            postCard.setCountry(getElementTextContent(postCardElement, "country"));
+            postCard.setYear(Year.parse(getElementTextContent(postCardElement, "year")));
             postCard.setValuable(Valuable.valueOf(valuable));
-            if (postCardElement.getElementsByTagName("Author").getLength()>0)
-                postCard.setAuthor(getElementTextContent(postCardElement, "Author"));
+            if (postCardElement.getElementsByTagName("author").getLength()>0)
+                postCard.setAuthor(getElementTextContent(postCardElement, "author"));
         }
         return postCard;
     }

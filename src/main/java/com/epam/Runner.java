@@ -1,10 +1,7 @@
 package com.epam;
 
 import com.epam.entity.PostCard;
-import com.epam.parser.DomXmlEntityParser;
-import com.epam.parser.SaxXmlEntityParser;
-import com.epam.parser.StaxXmlEntityParser;
-import com.epam.parser.XmlEntityParser;
+import com.epam.parser.*;
 import com.epam.validator.XsdValidator;
 
 public class Runner {
@@ -28,6 +25,12 @@ public class Runner {
         XmlEntityParser domParser = new DomXmlEntityParser();
         PostCard domPostCard = domParser.parsePostCard(xmlName);
         System.out.println(domPostCard);
+
+//        System.out.println("---------------------------------");
+//        System.out.println("JAXB:");
+//        XmlEntityParser jaxbParser = new JaxbXmlEntityParser();
+//        PostCard jaxbPostCard = jaxbParser.parsePostCard(xmlName);
+//        System.out.println(jaxbPostCard);
 
 //      XSD  Validating
         XsdValidator.validate("PostCard.xml", "PostCard.xsd");

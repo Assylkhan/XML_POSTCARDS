@@ -1,20 +1,28 @@
 package com.epam.entity;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.time.Year;
+import java.util.Comparator;
 
-public class PostCard {
+@XmlRootElement(name = "postCards")
+public class PostCard implements Comparator<PostCard> {
     private long id;
     private Theme theme;
     private CardType cardType;
     private String country;
     private Year year;
-    private String author;
     private Valuable valuable;
+    private String author;
 
     public PostCard(){}
 
     public PostCard(long id){
         this.id = id;
+    }
+
+    public int compare(PostCard o1, PostCard o2){
+        return Long.compare(o1.getId(), o2.getId());
     }
 
     public long getId() {

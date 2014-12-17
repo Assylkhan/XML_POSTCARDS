@@ -5,58 +5,58 @@
 
 <complexType name="Card">
     <sequence>
-        <element name="ID" type="positiveInteger" />
-        <element name="Theme">
+        <element name="id" type="positiveInteger" />
+        <element name="theme">
             <simpleType>
                 <restriction base="string">
                     <enumeration value="CITY_SCENERY" />
                     <enumeration value="NATURE" />
-                    <enumeration value="people" />
-                    <enumeration value="sport" />
-                    <enumeration value="architecture" />
+                    <enumeration value="PEOPLE" />
+                    <enumeration value="SPORT" />
+                    <enumeration value="ARCHITECTURE" />
                 </restriction>
             </simpleType>
         </element>
-        <element name="CardType">
+        <element name="cardType">
             <simpleType>
                 <restriction base="string">
-                    <enumeration value="congratulatory"/>
-                    <enumeration value="advertising" />
-                    <enumeration value="ordinary" />
+                    <enumeration value="CONGRATULATORY"/>
+                    <enumeration value="ADVERTISING" />
+                    <enumeration value="ORDINARY" />
                 </restriction>
             </simpleType>
         </element>
-        <element name="Country" >
+        <element name="country" >
             <simpleType>
                 <restriction base="string">
                     <pattern value="\w+" />
                 </restriction>
             </simpleType>
         </element>
-        <element name="Year" type="gYear" />
-        <element name="Author" minOccurs="0">
+        <element name="year" type="gYear" />
+        <element name="author" minOccurs="0">
             <simpleType>
                 <restriction base="string">
                     <pattern value="\w+"/>
                 </restriction>
             </simpleType>
         </element>
-        <element name="Valuable">
+        <element name="valuable">
             <simpleType>
                 <restriction base="string">
-                    <enumeration value="historical" />
-                    <enumeration value="collection" />
-                    <enumeration value="thematic" />
+                    <enumeration value="HISTORICAL" />
+                    <enumeration value="COLLECTION" />
+                    <enumeration value="THEMATIC" />
                 </restriction>
             </simpleType>
         </element>
     </sequence>
 </complexType>
     
-<element name="OldCards">
+<element name="postCards">
     <complexType>
         <sequence>
-            <element name="card" type="pc:Card" maxOccurs="unbounded"/>
+            <element name="postCard" type="pc:Card" maxOccurs="unbounded"/>
         </sequence>
     </complexType>
 </element>
